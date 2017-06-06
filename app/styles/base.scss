@@ -1,0 +1,36 @@
+.nav-tabs {
+    margin-bottom: 20px;
+
+    &>.nav-item>.nav-link {
+        &.active {
+            color: #555;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-bottom-color: transparent;
+            cursor: default;
+        }
+    }
+}
+
+.nav-pills {
+    &.nav-columns > .nav-item {
+        width: 100%;
+
+        &>.active {
+            color: #fff;
+            background-color: #337ab7;
+        }
+    }
+}
+
+.panel {
+    .panel-title a {
+        &:not(:disabled) {
+            cursor: pointer;
+        }
+    }
+}
+
+.main-content-wrapper {
+    padding: 40px 0;
+}

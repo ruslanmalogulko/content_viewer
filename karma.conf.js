@@ -2,7 +2,7 @@ const webpackConfig = require('./webpack.config.js');
 
 module.exports = function (config) {
   config.set({
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
     coverageReporter: {
       reporters: [
         { type: 'html', subdir: 'html' },
@@ -10,6 +10,7 @@ module.exports = function (config) {
       ]
     },
     files: [
+      './node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
       './app/**/*-test.js'
     ],
     frameworks: [

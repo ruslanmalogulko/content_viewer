@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "mock-server": "node server/server_mock.js",
-    "test:single": "rm -rf tmp/ && karma start karma.conf.js --single-run --browsers PhantomJS",
+    "test:single": "rm -rf tmp/ && karma start karma.conf.js --single-run",
     "test": "karma start",
     "precommit": "npm run lint",
     "lint": "eslint --cache --ignore-path .gitignore --ext .jsx,.js --format=node_modules/eslint-formatter-pretty .",
@@ -36,6 +36,8 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "history": "^4.6.1",
     "jasmine-core": "^2.6.2",
+    "karma-chrome-launcher": "^2.1.1",
+    "phantomjs-polyfill-object-assign": "^0.0.2",
     "react": "^15.5.4",
     "react-addons-test-utils": "^15.5.1",
     "react-bootstrap": "^0.31.0",
@@ -43,7 +45,9 @@
     "react-redux": "^5.0.4",
     "react-router": "2.8.1",
     "sass-loader": "^6.0.5",
-    "shallow": "^1.0.0"
+    "shallow": "^1.0.0",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
   },
   "devDependencies": {
     "babel": "^6.23.0",
@@ -74,8 +78,6 @@
     "redux-middleware": "^0.1.21",
     "redux-thunk": "^2.2.0",
     "style-loader": "^0.17.0",
-    "validate-commit-msg": "^2.12.1",
-    "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.4.5"
+    "validate-commit-msg": "^2.12.1"
   }
 }

@@ -23,18 +23,30 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.css$/, include: path.resolve(__dirname, 'app'), loader: 'style-loader!css-loader' },
-      { test: /\.js[x]?$/, include: path.resolve(__dirname, 'app'), exclude: /node_modules/, loader: 'babel-loader' },
+      {
+        test: /\.js[x]?$/,
+        include: path.resolve(__dirname, 'app'),
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            'react',
+            ['es2015', {}]]
+        }
+      },
       {
         test: /\.scss$/,
-        use: extractSass.extract({
-          use: [{
-            loader: "css-loader"
-          }, {
-            loader: "sass-loader"
-          }],
-          fallback: "style-loader"
-        })
-      }
+        use: [{
+          loader: "style-loader"
+        }, {
+          loader: "css-loader"
+        }, {
+          loader: "sass-loader",
+          options: {
+            includePaths: [path.resolve(__dirname, 'app/styles')]
+          }
+        }]
+      },
     ]
   },
   resolve: {
@@ -54,6 +66,7 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: './app/index.html', to: 'index.html' },
       { from: './app/base.css', to: 'base.css' }
-    ])
+    ]),
+    new ExtractTextPlugin( "bundle.css" )
   ]
 };
